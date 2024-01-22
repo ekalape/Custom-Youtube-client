@@ -4,12 +4,14 @@
     "lib": ["DOM", "ES2020"],
     "module": "ESNext",
     "jsx": "react-jsx",
+    "baseUrl": "./src",
     "strict": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+
   },
   "include": ["src"]
 }

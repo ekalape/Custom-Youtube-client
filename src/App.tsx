@@ -1,11 +1,27 @@
+import FavoritesPage from 'pages/favorites-page';
 import './App.css';
+import MainPage from 'pages/main-page';
+import * as ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Header from 'shared-components/Header';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />,
+  },
+  {
+    path: '/favorites',
+    element: <FavoritesPage />,
+  },
+]);
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
+    <>
+      <Header />
+      <RouterProvider router={router} />
+    </>
   );
 };
 
