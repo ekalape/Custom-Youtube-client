@@ -8,8 +8,8 @@ import { animated, useSpring } from '@react-spring/web';
 
 const AnimatedHeart = animated(HeartIcon);
 
-export function Card(props: { item: IYoutubeItem }) {
-  const { item } = props;
+export function Card(props: { item: IYoutubeItem; chooseCard: () => string }) {
+  const { item, chooseCard } = props;
   const [fav, setFav] = useState<boolean>(false);
   const { viewCount, likeCount, commentCount } = item.statistics;
 
@@ -21,16 +21,27 @@ export function Card(props: { item: IYoutubeItem }) {
 
   const transform = useCallback(transformCount, []);
 
-  const addToFavs = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const target = e.target as HTMLElement;
-    if (Array.from(target.classList).some((x) => x.includes('heart-icon'))) console.log('true');
-    setFav((prev) => !prev);
+    if (Array.from(target.classList).some((x) => x.includes('heart-icon'))) {
+      setFav((prev) => !prev);
+    } else chooseCard();
+  };
+
+  const addToFavs = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    const target = e.target as HTMLElement;
+    if (Array.from(target.classList).some((x) => x.includes('heart-icon'))) {
+      setFav((prev) => !prev);
+    }
   };
 
   return (
     <div
       className='card-container p-2 flex  flex-col gap-1 bg-white text-stone-950  rounded-md
-     border-red-500 border-2 outline-white outline-3 '>
+     border-red-500 border-2 outline-white outline-3 '
+      onClick={(e) => handleClick(e)}>
       <p className='text-xl text-center font-bold truncate duration-200'>{item.snippet.title}</p>
       <button
         className='heart-icon-btn flex gap-1 items-center px-3 py-1 border-2 border-red-400 rounded-lg self-end'
