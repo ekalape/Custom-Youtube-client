@@ -22,8 +22,23 @@
   }
 
   & button {
-    width: max-content;
-    transition: 0.3s;
+    width: fit-content;
+    height: 30px;
+
+    position: relative;
+    z-index: 2;
+    flex-wrap: nowrap;
+
+    & .heart-icon-anim {
+      position: absolute;
+      left: -2px;
+      z-index: 3;
+    }
+    & span {
+      display: block;
+      width: fit-content;
+      white-space: nowrap;
+    }
     &:hover {
       @apply text-red-500;
       & .heart-icon {
@@ -52,5 +67,5 @@
   }
 }
 
-@keyframes slideOut {
+@keyframes makeFav {
 }
