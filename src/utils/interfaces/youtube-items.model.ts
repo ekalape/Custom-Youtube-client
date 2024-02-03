@@ -1,3 +1,26 @@
+
+export interface IRawResponce {
+    TODO: string
+    kind: string
+    etag: string
+    pageInfo: {
+        totalResults: number
+        resultsPerPage: number
+    }
+    items: IYoutubeItem[]
+}
+
+export interface IResponce {
+    TODO: string
+    kind: string
+    etag: string
+    pageInfo: {
+        totalResults: number
+        resultsPerPage: number
+    }
+    items: IItem[]
+}
+
 export interface IRawYoutubeItem {
     kind: string
     etag: string
@@ -11,6 +34,24 @@ export interface IYoutubeItem {
     snippet: ISnippet
     statistics: IStatistics
 }
+
+export interface IItem {
+    id: string,
+    custom?: boolean;
+    title: string,
+    description: string,
+    imageLinks: IThumbnails,
+    videoLink: string,
+    createdAt: string,
+    tags: string[],
+    statistics: {
+        views: string,
+        likes: string,
+        dislikes: string,
+        comments: string
+    }
+}
+
 
 export interface ISnippet {
     publishedAt: string

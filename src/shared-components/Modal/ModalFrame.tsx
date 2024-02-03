@@ -19,7 +19,7 @@ export function ModalFrame({ itemId, closeFrame }: { itemId: string; closeFrame:
     <div
       className='flex z-10 items-center justify-center fixed bg-stone-800/75 modal-frame top-0'
       onClick={closeFrame}>
-      <div className='flex items-center justify-center relative p-1 bg-stone-800 border-2 border-red-800 rounded-xl'>
+      <div className='flex items-center justify-center relative p-1  border-2 border-red-800 rounded-xl bg-gradient-to-br from-stone-800 to-stone-500'>
         <button
           className='absolute text-red-500 -right-5 -top-5 border-2 border-red-700 rounded-full -z-1 bg-stone-800
         hover:scale-150 duration-150 hover:bg-stone-700 hover:z-10 hover:border-red-500

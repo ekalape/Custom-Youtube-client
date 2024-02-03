@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import './styles.scss';
-import { IYoutubeItem } from 'utils/interfaces/youtube-items.model';
+import { IItem, IYoutubeItem } from 'utils/interfaces/youtube-items.model';
 import { EyeIcon, HandThumbUpIcon, HeartIcon } from '@heroicons/react/16/solid';
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/20/solid';
@@ -8,10 +8,10 @@ import { animated, useSpring } from '@react-spring/web';
 
 const AnimatedHeart = animated(HeartIcon);
 
-export function Card(props: { item: IYoutubeItem; chooseCard: () => string }) {
+export function Card(props: { item: IItem; chooseCard: () => string }) {
   const { item, chooseCard } = props;
   const [fav, setFav] = useState<boolean>(false);
-  const { viewCount, likeCount, commentCount } = item.statistics;
+  const { views, likes, comments } = item.statistics;
 
   const { x } = useSpring({
     from: { x: 0 },
@@ -39,10 +39,10 @@ export function Card(props: { item: IYoutubeItem; chooseCard: () => string }) {
 
   return (
     <div
-      className='card-container p-2 flex  flex-col gap-1 bg-white text-stone-950  rounded-md
-     border-red-500 border-2 outline-white outline-3 '
+      className='card-container p-2 flex  flex-col gap-1  text-stone-950 bg-gradient-to-b from-transparent to-white rounded-md
+     border-red-500 border-2 outline-white outline-3 hover:border-3'
       onClick={(e) => handleClick(e)}>
-      <p className='text-xl text-center font-bold truncate duration-200'>{item.snippet.title}</p>
+      <p className='text-xl text-center font-bold truncate duration-200 text-white'>{item.title}</p>
       <button
         className='heart-icon-btn flex gap-1 items-center px-3 py-1 border-2 border-red-400 rounded-lg self-end'
         onClick={(e) => addToFavs(e)}>
@@ -65,26 +65,24 @@ export function Card(props: { item: IYoutubeItem; chooseCard: () => string }) {
       </button>
       <img
         src={
-          item.snippet.thumbnails.standard?.url
-            ? item.snippet.thumbnails.standard.url
-            : item.snippet.thumbnails.default.url
+          item.imageLinks.standard?.url ? item.imageLinks.standard.url : item.imageLinks.default.url
         }
         alt=''
         className='container rounded-md border-2 duration-200'
       />
-      <p className='text-xs italic line-clamp-3 '>{item.snippet.description}</p>
+      <p className='text-xs italic line-clamp-3 '>{item.description}</p>
       <div className='flex justify-between px-3 pt-2'>
         <span className='flex gap-1 items-center'>
           <EyeIcon className='h-5 w-5 text-red-400' />
-          {transform(viewCount)}{' '}
+          {transform(views)}{' '}
         </span>
         <span className='flex gap-1 items-center'>
           <HandThumbUpIcon className='h-5 w-5 text-red-400' />
-          {transform(likeCount)}{' '}
+          {transform(likes)}{' '}
         </span>
         <span className='flex gap-1 items-center'>
           <ChatBubbleBottomCenterTextIcon className='h-5 w-5 text-red-400' />
-          {transform(commentCount)}{' '}
+          {transform(comments)}{' '}
         </span>
       </div>
     </div>
