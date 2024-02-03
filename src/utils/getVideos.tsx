@@ -3,7 +3,6 @@ import { IItem, IRawYoutubeItem, IYoutubeItem } from 'utils/interfaces/youtube-i
 
 export async function getVideos(word: string) {
   const url = process.env.BASE_URL;
-  console.log('api key -->', process.env.API_KEY);
   let items: IItem[] = [];
 
   try {
@@ -43,7 +42,7 @@ export async function getVideos(word: string) {
   https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=nq4aU9gmZQk,REu2BcnlD34,qbPTdW7KgOg&part=snippet,statistics
    */
 
-function transformItemsResponse(items: IYoutubeItem[]): IItem[] {
+export function transformItemsResponse(items: IYoutubeItem[]): IItem[] {
   return items.map((x) => ({
     id: x.id,
     title: x.snippet.title,
