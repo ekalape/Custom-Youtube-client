@@ -30,11 +30,12 @@ export function Card(props: { item: IItem; chooseCard: () => string }) {
   };
 
   const addToFavs = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.stopPropagation();
     const target = e.target as HTMLElement;
+    console.log(target.classList);
     if (Array.from(target.classList).some((x) => x.includes('heart-icon'))) {
       setFav((prev) => !prev);
     }
+    e.stopPropagation();
   };
 
   return (
@@ -43,13 +44,23 @@ export function Card(props: { item: IItem; chooseCard: () => string }) {
      border-red-500 border-2 outline-white outline-3 hover:border-3'
       onClick={(e) => handleClick(e)}>
       <p className='text-xl text-center font-bold truncate duration-200 text-white'>{item.title}</p>
+
+      <img
+        src={
+          item.imageLinks.standard?.url ? item.imageLinks.standard.url : item.imageLinks.default.url
+        }
+        alt=''
+        className='container rounded-md border-2 duration-200'
+      />
+      <p className='text-xs italic line-clamp-3 '>{item.description}</p>
+
       <button
-        className='heart-icon-btn flex gap-1 items-center px-3 py-1 border-2 border-red-400 rounded-lg self-end'
+        className='heart-icon-btn flex gap-1 items-center px-3 py-1 border-2 border-red-600 rounded-lg self-end'
         onClick={(e) => addToFavs(e)}>
         {fav ? (
-          <HeartIcon className='heart-icon h-5 w-5 text-red-400 duration-200' />
+          <HeartIcon className='heart-icon h-5 w-5 text-red-600 duration-200' />
         ) : (
-          <HeartIconOutline className='heart-icon h-5 w-5 text-red-400 duration-200' />
+          <HeartIconOutline className='heart-icon h-5 w-5 text-red-600 duration-200' />
         )}
 
         <AnimatedHeart
@@ -63,14 +74,7 @@ export function Card(props: { item: IItem; chooseCard: () => string }) {
           }}
         />
       </button>
-      <img
-        src={
-          item.imageLinks.standard?.url ? item.imageLinks.standard.url : item.imageLinks.default.url
-        }
-        alt=''
-        className='container rounded-md border-2 duration-200'
-      />
-      <p className='text-xs italic line-clamp-3 '>{item.description}</p>
+
       <div className='flex justify-between px-3 pt-2'>
         <span className='flex gap-1 items-center'>
           <EyeIcon className='h-5 w-5 text-red-400' />

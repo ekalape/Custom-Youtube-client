@@ -19,10 +19,14 @@ export function SearchInput({ handleSearch, labelText }: InputProps) {
   }
 
   return (
-    <form onSubmit={setSearchWord}>
-      <label>
+    <form onSubmit={setSearchWord} className='search-form'>
+      <label className='label'>
         {labelText}
-        <input type='text' onChange={(e) => setWord(e.target.value)} />
+        <input
+          type='text'
+          onChange={(e) => setWord(e.target.value)}
+          placeholder='I am looking...'
+        />
       </label>
     </form>
   );

@@ -1,10 +1,8 @@
 import './styles.scss';
-import { IItem, IRawYoutubeItem, IYoutubeItem } from 'utils/interfaces/youtube-items.model';
+import { IItem } from 'utils/interfaces/youtube-items.model';
 import Card from './Card';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ModalFrame from 'shared-components/Modal';
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 
 type YoutubeItemsProps = {
   items: IItem[];

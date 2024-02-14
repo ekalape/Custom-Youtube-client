@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 body {
+  width: 100vw;
   margin: 0;
   padding: 0;
   color: #fff;
@@ -15,9 +16,10 @@ body {
   align-items: center;
   flex-direction: column;
   position: relative;
+  overflow-x: hidden;
 }
 #root {
-  width: 100%;
+  width: 100vw;
   padding: 1rem 3rem;
   min-height: 100vh;
 }

@@ -8,6 +8,7 @@
   & p:nth-of-type(2) {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    height: 50px;
   }
   &:hover,
   &:focus {

@@ -7,10 +7,12 @@ export function Header() {
     console.log(word);
   }
   return (
-    <div className='header-container container px-4 flex items-center justify-around  text-red-500'>
+    <div className='header-container container px-4 flex items-center justify-around  text-white '>
       <SearchInput handleSearch={(word: string) => setSearchWord(word)} labelText={'Search: '} />
-      <NavLink to={'/'}>Main page</NavLink>
-      <NavLink to={'/favorites'}>Favorites</NavLink>
+      <div className='flex gap-4 '>
+        <NavLink to={'/'}>Main page</NavLink>
+        <NavLink to={'/favorites'}>Favorites</NavLink>
+      </div>
     </div>
   );
 }
