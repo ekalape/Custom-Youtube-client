@@ -46,7 +46,7 @@ export function ModalFrame({
                 views={videoData.statistics.views}
                 likes={videoData.statistics.likes}
                 comments={videoData.statistics.comments}>
-                <AnimatedFavButton />
+                <AnimatedFavButton videoId={videoData?.id} />
               </SocialInfoBlock>
             </div>
 

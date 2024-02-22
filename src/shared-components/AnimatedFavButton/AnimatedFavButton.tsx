@@ -1,34 +1,45 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HeartIcon } from '@heroicons/react/16/solid';
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 import { animated, useSpring } from '@react-spring/web';
 import './styles.scss';
+import { useSelector } from 'react-redux';
+import {
+  FavSliceType,
+  removeFromFavoritesAction,
+  setFavoriteAction,
+} from 'store/slices/favoriteSlice';
+import store, { StoreStateType } from 'store/store';
 
-type SocialPropsType = {
-  views: string;
-  likes: string;
-  comments: string;
-};
 const AnimatedHeart = animated(HeartIcon);
-export function AnimatedFavButton() {
-  const [fav, setFav] = useState(false);
+export function AnimatedFavButton({ videoId }: { videoId: string }) {
+  const favVideos = useSelector((state: StoreStateType) => state.favorites.favs);
+
+  const [isFav, setIsFav] = useState(favVideos?.includes(videoId));
 
   const { x } = useSpring({
     from: { x: 0 },
-    x: fav ? 1 : 0,
+    x: isFav ? 1 : 0,
     config: { duration: 150 },
   });
 
   const makeFav = () => {
-    setFav(!fav);
+    if (favVideos?.includes(videoId)) {
+      store.dispatch(removeFromFavoritesAction(videoId));
+    } else store.dispatch(setFavoriteAction(videoId));
+    setIsFav(!isFav);
   };
+
+  useEffect(() => {
+    console.log('store: ', favVideos);
+  }, [isFav]);
 
   return (
     <button
       className='heart-icon-btn flex hover:text-red-400 duration-300 hover:border-red-400 justify-center
     items-center px-3 py-1 border-2 border-red-600 rounded-lg'
       onClick={makeFav}>
-      {fav ? (
+      {favVideos?.includes(videoId) ? (
         <HeartIcon className='heart-icon h-5 w-5 text-red-600 duration-200' />
       ) : (
         <HeartIconOutline className='heart-icon h-5 w-5 text-red-600 duration-200' />

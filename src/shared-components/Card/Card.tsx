@@ -14,7 +14,6 @@ export function Card(props: { item: IItem; chooseCard: () => string }) {
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     const target = e.target as HTMLElement;
-    console.log('classList :>> ', target.nodeName);
     if (
       Array.from(target.classList).some((x) => x.includes('heart-icon')) ||
       target.nodeName === 'path'
@@ -49,7 +48,7 @@ export function Card(props: { item: IItem; chooseCard: () => string }) {
                 hover:text-red-400 hover:bg-stone-900 duration-300'>
           More...
         </button>
-        <AnimatedFavButton />
+        <AnimatedFavButton videoId={item.id} />
       </div>
 
       <SocialInfoBlock
