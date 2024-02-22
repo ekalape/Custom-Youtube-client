@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useRef } from 'react';
 import './styles.scss';
 
 type InputProps = {
@@ -7,27 +7,29 @@ type InputProps = {
 };
 
 export function SearchInput({ handleSearch, labelText }: InputProps) {
-  const [word, setWord] = useState('');
+  const wordRef = useRef<HTMLInputElement | null>(null);
 
   function setSearchWord(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log('event==>', e);
-    console.log('word==>', word);
-    handleSearch(word);
-    setWord('');
-    (e.target as HTMLFormElement).reset();
+    handleSearch(wordRef.current?.value.trim().toLowerCase() || '');
+  }
+
+  function clearSearchField() {
+    if (wordRef.current) wordRef.current.value = '';
   }
 
   return (
-    <form onSubmit={setSearchWord} className='search-form'>
+    <form onSubmit={setSearchWord} className='search-form flex gap-2'>
       <label className='label'>
         {labelText}
-        <input
-          type='text'
-          onChange={(e) => setWord(e.target.value)}
-          placeholder='I am looking...'
-        />
+        <input type='text' placeholder='I am looking...' ref={wordRef} />
       </label>
+      <button
+        onClick={clearSearchField}
+        type='button'
+        className='flex items-center justify-center px-2 border-2 border-white rounded-full hover:border-red-500 hover:text-red-500 duration-300'>
+        x
+      </button>
     </form>
   );
 }

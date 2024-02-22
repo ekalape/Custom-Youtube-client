@@ -1,0 +1,44 @@
+.heart-icon-btn {
+  width: fit-content;
+  height: 30px;
+
+  position: relative;
+  z-index: 2;
+  flex-wrap: nowrap;
+
+  & .heart-icon-anim {
+    position: absolute;
+    left: -2px;
+    z-index: 3;
+  }
+  & span {
+    display: block;
+    width: fit-content;
+    white-space: nowrap;
+  }
+  &:hover {
+    @apply text-red-500;
+    & .heart-icon {
+      animation: pulseHeart 2s infinite;
+    }
+  }
+}
+
+@keyframes pulseHeart {
+  0% {
+    transform: scale(1);
+    @apply text-red-400;
+  }
+  25% {
+    transform: scale(1.2);
+    @apply text-red-600;
+  }
+  55% {
+    transform: scale(1);
+    @apply text-red-400;
+  }
+  80% {
+    transform: scale(1.2);
+    @apply text-red-600;
+  }
+}

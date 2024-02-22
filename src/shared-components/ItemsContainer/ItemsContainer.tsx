@@ -1,6 +1,6 @@
 import './styles.scss';
 import { IItem } from 'utils/interfaces/youtube-items.model';
-import Card from './Card';
+import Card from '../Card';
 import { useState } from 'react';
 import ModalFrame from 'shared-components/Modal';
 
@@ -12,6 +12,11 @@ type YoutubeItemsProps = {
 export function ItemsContainer({ items, isLoading }: YoutubeItemsProps) {
   const [selectedId, setSelectedId] = useState('');
 
+  const closeFrame = (e: React.MouseEvent) => {
+    const list = Array.from((e.target as HTMLElement).classList);
+    if (list.includes('modal-frame') || list.includes('close-btn')) setSelectedId('');
+  };
+
   const chooseCard = (id: string) => {
     setSelectedId(id);
     return id;
@@ -19,7 +24,7 @@ export function ItemsContainer({ items, isLoading }: YoutubeItemsProps) {
 
   return (
     <>
-      {selectedId && <ModalFrame itemId={selectedId} closeFrame={() => setSelectedId('')} />}
+      {selectedId && <ModalFrame itemId={selectedId} closeFrame={closeFrame} />}
       {isLoading ? (
         <span>Loading...</span>
       ) : (
