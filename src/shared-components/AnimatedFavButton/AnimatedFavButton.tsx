@@ -12,10 +12,10 @@ import {
 import store, { StoreStateType } from 'store/store';
 
 const AnimatedHeart = animated(HeartIcon);
-export function AnimatedFavButton({ videoId }: { videoId: string }) {
+export function AnimatedFavButton(props: { videoId: string; classNames?: string }) {
   const favVideos = useSelector((state: StoreStateType) => state.favorites.favs);
 
-  const [isFav, setIsFav] = useState(favVideos?.includes(videoId));
+  const [isFav, setIsFav] = useState(favVideos?.includes(props.videoId));
 
   const { x } = useSpring({
     from: { x: 0 },
@@ -24,9 +24,9 @@ export function AnimatedFavButton({ videoId }: { videoId: string }) {
   });
 
   const makeFav = () => {
-    if (favVideos?.includes(videoId)) {
-      store.dispatch(removeFromFavoritesAction(videoId));
-    } else store.dispatch(setFavoriteAction(videoId));
+    if (favVideos?.includes(props.videoId)) {
+      store.dispatch(removeFromFavoritesAction(props.videoId));
+    } else store.dispatch(setFavoriteAction(props.videoId));
     setIsFav(!isFav);
   };
 
@@ -36,10 +36,10 @@ export function AnimatedFavButton({ videoId }: { videoId: string }) {
 
   return (
     <button
-      className='heart-icon-btn flex hover:text-red-400 duration-300 hover:border-red-400 justify-center
-    items-center px-3 py-1 border-2 border-red-600 rounded-lg'
+      className={`heart-icon-btn flex hover:text-red-400 duration-300 hover:border-red-400 justify-center
+      items-center px-3 py-1 border-2 border-red-600 rounded-lg ${props.classNames || ''}`}
       onClick={makeFav}>
-      {favVideos?.includes(videoId) ? (
+      {favVideos?.includes(props.videoId) ? (
         <HeartIcon className='heart-icon h-5 w-5 text-red-600 duration-200' />
       ) : (
         <HeartIconOutline className='heart-icon h-5 w-5 text-red-600 duration-200' />

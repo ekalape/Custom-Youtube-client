@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import './styles.scss';
 import { IItem } from 'utils/interfaces/youtube-items.model';
 
-import { useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import SocialInfoBlock from 'shared-components/SocialInfoBlock';
 import AnimatedFavButton from 'shared-components/AnimatedFavButton';
 
@@ -22,7 +22,7 @@ export function Card(props: { item: IItem; chooseCard: () => string }) {
     } else if (Array.from(target.classList).some((x) => x.includes('more-btn'))) {
       chooseCard();
     } else {
-      navigate(`video/${item.id}`);
+      navigate(`/video/${item.id}`);
     }
   };
 

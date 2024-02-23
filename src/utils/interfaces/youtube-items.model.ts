@@ -44,6 +44,7 @@ export interface IItem {
     videoLink: string,
     createdAt: string,
     tags: string[],
+    channelTitle: string,
     statistics: {
         views: string,
         likes: string,

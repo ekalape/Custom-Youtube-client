@@ -17,7 +17,7 @@ export function Header() {
   }
 
   function goBack() {
-    navigate('/');
+    navigate(-1);
   }
   useEffect(() => {
     if (loc.pathname.includes('video')) {

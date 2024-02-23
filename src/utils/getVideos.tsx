@@ -1,10 +1,8 @@
 import axios from 'axios';
 import { IItem, IRawYoutubeItem, IYoutubeItem } from 'utils/interfaces/youtube-items.model';
-
+const url = process.env.BASE_URL;
 export async function getVideos(word: string) {
-  const url = process.env.BASE_URL;
   let items: IItem[] = [];
-
   try {
     const response = await axios.get(`${url}/search?`, {
       params: {
@@ -15,10 +13,19 @@ export async function getVideos(word: string) {
         q: word,
       },
     });
-
     const ids = (response?.data.items as IRawYoutubeItem[]).map((x) => x.id.videoId);
-    console.log(response?.data);
-    console.log(ids);
+
+    items = await getVideosByIds(ids);
+  } catch (error) {
+    console.error('error', error);
+    return [];
+  }
+  return items;
+}
+
+export async function getVideosByIds(ids: string[] | undefined) {
+  if (!ids || ids.length === 0) return [];
+  try {
     const fullResponse = await axios.get(`${url}/videos?`, {
       params: {
         key: process.env.API_KEY,
@@ -28,13 +35,10 @@ export async function getVideos(word: string) {
     });
 
     console.log(fullResponse);
-    items = transformItemsResponse(fullResponse?.data.items);
-    console.log('final items', items);
-  } catch (error) {
-    console.error('error', error);
+    return transformItemsResponse(fullResponse?.data.items);
+  } catch (e) {
     return [];
   }
-  return items;
 }
 
 /* 
@@ -51,6 +55,7 @@ export function transformItemsResponse(items: IYoutubeItem[]): IItem[] {
     videoLink: x.snippet.channelId,
     createdAt: x.snippet.publishedAt,
     tags: x.snippet.tags,
+    channelTitle: x.snippet.channelTitle,
     statistics: {
       views: x.statistics.viewCount,
       likes: x.statistics.likeCount,
