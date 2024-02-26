@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { LSFAVS } from 'utils/interfaces/enums';
 
 export type FavSliceType = {
     favs: string[]
 }
 
 const initState: FavSliceType = {
-    favs: [],
+    favs: localStorage.getItem(LSFAVS)?.split(',') || []
 }
 
 const favoriteSlice = createSlice({

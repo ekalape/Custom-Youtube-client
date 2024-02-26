@@ -10,9 +10,13 @@ import {
   setFavoriteAction,
 } from 'store/slices/favoriteSlice';
 import store, { StoreStateType } from 'store/store';
+import useLocalStorage from 'react-use-localstorage';
+import { LSFAVS } from 'utils/interfaces/enums';
 
 const AnimatedHeart = animated(HeartIcon);
 export function AnimatedFavButton(props: { videoId: string; classNames?: string }) {
+  const [stItems, setStItems] = useLocalStorage(LSFAVS, '');
+
   const favVideos = useSelector((state: StoreStateType) => state.favorites.favs);
 
   const [isFav, setIsFav] = useState(favVideos?.includes(props.videoId));
@@ -26,13 +30,22 @@ export function AnimatedFavButton(props: { videoId: string; classNames?: string 
   const makeFav = () => {
     if (favVideos?.includes(props.videoId)) {
       store.dispatch(removeFromFavoritesAction(props.videoId));
-    } else store.dispatch(setFavoriteAction(props.videoId));
+      const stored = stItems.split(',');
+      if (stored.length) {
+        const index = stored.indexOf(props.videoId);
+        stored.splice(index, 1);
+        setStItems(stored.join(','));
+      }
+    } else {
+      store.dispatch(setFavoriteAction(props.videoId));
+      const stored = stItems.split(',');
+      if (stored.length) {
+        stored.push(props.videoId);
+        setStItems(stored.join(','));
+      }
+    }
     setIsFav(!isFav);
   };
-
-  useEffect(() => {
-    console.log('store: ', favVideos);
-  }, [isFav]);
 
   return (
     <button

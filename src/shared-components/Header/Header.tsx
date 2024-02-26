@@ -11,6 +11,7 @@ export function Header() {
   let loc = useLocation();
   const navigate = useNavigate();
   const [isVideoPage, setIsVideoPage] = useState<boolean>(false);
+  const [isFavsPage, setIsFavsPage] = useState<boolean>(false);
   function setSearchWord(word: string) {
     console.log(word);
     store.dispatch(setSearchWordAction(word.trim().toLowerCase()));
@@ -20,10 +21,12 @@ export function Header() {
     navigate(-1);
   }
   useEffect(() => {
+    setIsVideoPage(false);
+    setIsFavsPage(false);
     if (loc.pathname.includes('video')) {
       setIsVideoPage(true);
-    } else {
-      setIsVideoPage(false);
+    } else if (loc.pathname.includes('favorites')) {
+      setIsFavsPage(true);
     }
   }, [loc]);
 
@@ -31,6 +34,8 @@ export function Header() {
     <div className='header-container container px-4 flex items-center justify-around  text-white '>
       {isVideoPage ? (
         <ArrowLeftIcon className='w-6 h-6 cursor-pointer' onClick={goBack} />
+      ) : isFavsPage ? (
+        <h2 className='text-2xl text-red-500'>FAVORITE VIDEOS</h2>
       ) : (
         <SearchInput handleSearch={(word: string) => setSearchWord(word)} labelText={'Search: '} />
       )}

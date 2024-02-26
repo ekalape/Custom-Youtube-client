@@ -1,0 +1,1 @@
+export const LSFAVS = 'y-t-favsVids24';
