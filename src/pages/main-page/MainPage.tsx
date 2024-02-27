@@ -13,18 +13,18 @@ export function MainPage() {
   const storedWord: string = useSelector((state: StoreStateType) => state.search.searchWord);
   const storedItems: IItem[] = useSelector((state: StoreStateType) => state.search.videos);
 
-  const info = useQuery({
+  /*   const info = useQuery({
     queryKey: ['getVideos', storedWord],
     queryFn: () => getVideos(storedWord),
-  });
+  }); */
 
   useEffect(() => {
-    // store.dispatch(setVideosAction(transformItemsResponse(mockItems.items)));
-
+    store.dispatch(setVideosAction(transformItemsResponse(mockItems.items)));
+    /* 
     if (info.data) {
       store.dispatch(setVideosAction(info.data));
-    }
-  }, [info, storedWord]);
+    } */
+  }, [/* info,  */ storedWord]);
   useEffect(() => {
     console.log('storedWord=', storedWord);
   }, [store.getState()]);
@@ -32,10 +32,7 @@ export function MainPage() {
   return (
     <div className='main-page__container container flex justify-center p-2'>
       {storedWord ? (
-        <ItemsContainer
-          items={storedItems.filter((item) => item.title.toLowerCase().includes(storedWord)) || []}
-          isLoading={info.isLoading}
-        />
+        <ItemsContainer items={storedItems} isLoading={/* info.isLoading */ false} />
       ) : (
         <div className='flex items-end relative left-1/5 animate-bounce top-8'>
           <svg viewBox='0 0 44.77 135.66' width={'10%'} height={'100%'} fill='red'>
