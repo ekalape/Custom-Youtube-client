@@ -1,7 +1,6 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './styles.scss';
 import SearchInput from 'shared-components/Inputs/SearchInput';
-
 import store from 'store/store';
 import { setSearchWordAction } from 'store/slices/searchSlice';
 import { useEffect, useState } from 'react';
@@ -19,7 +18,6 @@ export function Header() {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   function setSearchWord(word: string) {
-    console.log(word);
     store.dispatch(setSearchWordAction(word.trim().toLowerCase()));
   }
 
@@ -59,7 +57,9 @@ export function Header() {
         <NavLink to={'/'}>Main page</NavLink>
         <NavLink to={'/favorites'}>Favorites</NavLink>
         <button
-          className='cursor-pointer text-white hover:text-red-500 duration-300'
+          className={`cursor-pointer  duration-300 ${
+            filtersOpen ? 'text-red-500' : 'text-white'
+          }  hover:text-red-500`}
           onClick={closeFilters}>
           <svg
             xmlns='http://www.w3.org/2000/svg'

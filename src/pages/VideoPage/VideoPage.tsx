@@ -1,9 +1,6 @@
-import { useEffect, useMemo } from 'react';
 import './styles.scss';
 import { useParams } from 'react-router';
 import YouTube, { YouTubeProps } from 'react-youtube';
-import { useSelectVideoById } from 'store/slices/selectors';
-import { IItem } from 'utils/interfaces/youtube-items.model';
 import { useQuery } from '@tanstack/react-query';
 import { getVideosByIds } from 'utils/getVideos';
 import TagBadge from 'shared-components/TagBadge';
@@ -21,7 +18,6 @@ export const VideoPage = () => {
   const opts: YouTubeProps['opts'] = {
     width: '100%',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
     },
   };

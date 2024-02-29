@@ -82,7 +82,6 @@ export const useSelectSortedItems = (videos: IItem[]): IItem[] => {
   }, [videos, sortViewsType]);
 
   if (filterWord) {
-    console.log('in the store, filterWord -->', filterWord);
     return result.filter((item: IItem) =>
       item.title.toLowerCase().includes(filterWord.toLowerCase()),
     );

@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react';
 import './styles.scss';
 import { animated } from '@react-spring/web';
-
 import SortInput from 'shared-components/Inputs/SortInputs';
 import { SortValues } from 'utils/interfaces/enums';
 import store, { StoreStateType } from 'store/store';

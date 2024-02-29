@@ -1,7 +1,3 @@
-import YouTube, { YouTubeProps } from 'react-youtube';
-import './styles.scss';
-import { useSelectVideoById } from 'store/slices/selectors';
-import { IItem } from 'utils/interfaces/youtube-items.model';
 import SocialInfoBlock from 'shared-components/SocialInfoBlock';
 import { Link } from 'react-router-dom';
 import AnimatedFavButton from 'shared-components/AnimatedFavButton';
@@ -19,8 +15,6 @@ export function ModalFrame({
   closeFrame: (e: React.MouseEvent) => void;
   animStyle: CSSProperties;
 }) {
-  //const videoData: IItem = SelectVideoById(itemId);
-
   const videoData = useQuery({
     queryKey: ['getVideoById', itemId],
     queryFn: () => getVideosByIds([itemId]),

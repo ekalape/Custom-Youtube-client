@@ -33,18 +33,11 @@ export async function getVideosByIds(ids: string[] | undefined) {
         id: ids.join(','),
       },
     });
-
-    console.log(fullResponse);
     return transformItemsResponse(fullResponse?.data.items);
   } catch (e) {
     return [];
   }
 }
-
-/* 
-  https://www.googleapis.com/youtube/v3/search?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&type=video&part=snippet&maxResults=15&q=js
-  https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=nq4aU9gmZQk,REu2BcnlD34,qbPTdW7KgOg&part=snippet,statistics
-   */
 
 export function transformItemsResponse(items: IYoutubeItem[]): IItem[] {
   return items.map((x) => ({

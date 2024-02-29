@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { HeartIcon } from '@heroicons/react/16/solid';
 import { HeartIcon as HeartIconOutline } from '@heroicons/react/24/outline';
 import { animated, useSpring } from '@react-spring/web';
 import './styles.scss';
 import { useSelector } from 'react-redux';
-import {
-  FavSliceType,
-  removeFromFavoritesAction,
-  setFavoriteAction,
-} from 'store/slices/favoriteSlice';
+import { removeFromFavoritesAction, setFavoriteAction } from 'store/slices/favoriteSlice';
 import store, { StoreStateType } from 'store/store';
 import useLocalStorage from 'react-use-localstorage';
 import { LSFAVS } from 'utils/interfaces/enums';

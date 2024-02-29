@@ -1,10 +1,10 @@
 import ItemsContainer from 'shared-components/ItemsContainer';
 import './styles.scss';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { IItem } from 'utils/interfaces/youtube-items.model';
 import * as mockItems from 'assets/mock-data.json';
 import { useQuery } from '@tanstack/react-query';
-import { getVideos, transformItemsResponse } from 'utils/getVideos';
+import { getVideos } from 'utils/getVideos';
 import store, { StoreStateType } from 'store/store';
 import { useSelector } from 'react-redux';
 import { setVideosAction } from 'store/slices/searchSlice';
@@ -13,26 +13,23 @@ export function MainPage() {
   const storedWord: string = useSelector((state: StoreStateType) => state.search.searchWord);
   const storedItems: IItem[] = useSelector((state: StoreStateType) => state.search.videos);
 
-  /*   const info = useQuery({
+  const info = useQuery({
     queryKey: ['getVideos', storedWord],
     queryFn: () => getVideos(storedWord),
-  }); */
+  });
 
   useEffect(() => {
-    store.dispatch(setVideosAction(transformItemsResponse(mockItems.items)));
-    /* 
+    //store.dispatch(setVideosAction(transformItemsResponse(mockItems.items)));
+
     if (info.data) {
       store.dispatch(setVideosAction(info.data));
-    } */
-  }, [/* info,  */ storedWord]);
-  useEffect(() => {
-    console.log('storedWord=', storedWord);
-  }, [store.getState()]);
+    }
+  }, [info, storedWord]);
 
   return (
     <div className='main-page__container container flex justify-center p-2'>
       {storedWord ? (
-        <ItemsContainer items={storedItems} isLoading={/* info.isLoading */ false} />
+        <ItemsContainer items={storedItems} isLoading={info.isLoading} />
       ) : (
         <div className='flex items-end relative left-1/5 animate-bounce top-8'>
           <svg viewBox='0 0 44.77 135.66' width={'10%'} height={'100%'} fill='red'>

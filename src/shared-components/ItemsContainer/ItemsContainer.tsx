@@ -1,12 +1,9 @@
 import './styles.scss';
 import { IItem } from 'utils/interfaces/youtube-items.model';
 import Card from '../Card';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ModalFrame from 'shared-components/Modal';
 import { animated, useTransition } from '@react-spring/web';
-import { useSelector } from 'react-redux';
-import { StoreStateType } from 'store/store';
-import { SortValues } from 'utils/interfaces/enums';
 import { useSelectSortedItems } from 'store/slices/selectors';
 
 type YoutubeItemsProps = {

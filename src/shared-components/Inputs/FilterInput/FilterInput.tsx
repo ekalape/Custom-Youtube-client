@@ -1,4 +1,4 @@
-import { FormEvent, useRef } from 'react';
+import { useRef } from 'react';
 import './styles.scss';
 
 type InputProps = {

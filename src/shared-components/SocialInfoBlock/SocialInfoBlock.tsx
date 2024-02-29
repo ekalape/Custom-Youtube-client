@@ -1,6 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import './styles.scss';
-import { IItem } from 'utils/interfaces/youtube-items.model';
 import { EyeIcon, HandThumbUpIcon } from '@heroicons/react/16/solid';
 import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/20/solid';
 

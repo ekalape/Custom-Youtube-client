@@ -1,8 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
 import './styles.scss';
 import { IItem } from 'utils/interfaces/youtube-items.model';
-
-import { useLocation, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import SocialInfoBlock from 'shared-components/SocialInfoBlock';
 import AnimatedFavButton from 'shared-components/AnimatedFavButton';
 
