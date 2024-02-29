@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { IItem } from 'utils/interfaces/youtube-items.model';
 
+type SearchSliceType = {
+    searchWord: string,
+    videos: IItem[],
+}
 
-const initState = {
+const initState: SearchSliceType = {
     searchWord: "",
     videos: [],
 }

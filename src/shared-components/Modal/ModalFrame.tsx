@@ -1,6 +1,6 @@
 import YouTube, { YouTubeProps } from 'react-youtube';
 import './styles.scss';
-import { SelectVideoById } from 'store/slices/selectors';
+import { useSelectVideoById } from 'store/slices/selectors';
 import { IItem } from 'utils/interfaces/youtube-items.model';
 import SocialInfoBlock from 'shared-components/SocialInfoBlock';
 import { Link } from 'react-router-dom';

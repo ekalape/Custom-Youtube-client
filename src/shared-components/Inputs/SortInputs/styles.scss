@@ -1,0 +1,33 @@
+.sort-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 50%;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+
+  @apply duration-300;
+  &:last-of-type {
+    border: none;
+  }
+
+  &:hover {
+    @apply border-red-500;
+    @apply text-red-500;
+  }
+}
+
+input[type='radio'] {
+  appearance: none;
+}
+label:has(> input[type='radio']:checked),
+label:has(> input[type='radio']:checked) > svg {
+  @apply border-red-500;
+  @apply text-red-500;
+}

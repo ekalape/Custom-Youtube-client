@@ -1,6 +1,6 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import './styles.scss';
-import SearchInput from 'shared-components/SearchInput';
+import SearchInput from 'shared-components/Inputs/SearchInput';
 
 import store from 'store/store';
 import { setSearchWordAction } from 'store/slices/searchSlice';
@@ -24,8 +24,8 @@ export function Header() {
   }
 
   const props = useSpring({
-    from: { right: filtersOpen ? -500 : 0 },
-    to: { right: filtersOpen ? 0 : -500 },
+    from: { right: filtersOpen ? -300 : 0 },
+    to: { right: filtersOpen ? 0 : -300 },
   });
 
   function goBack() {

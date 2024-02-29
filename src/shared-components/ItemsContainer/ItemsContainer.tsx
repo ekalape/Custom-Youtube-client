@@ -1,9 +1,13 @@
 import './styles.scss';
 import { IItem } from 'utils/interfaces/youtube-items.model';
 import Card from '../Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ModalFrame from 'shared-components/Modal';
 import { animated, useTransition } from '@react-spring/web';
+import { useSelector } from 'react-redux';
+import { StoreStateType } from 'store/store';
+import { SortValues } from 'utils/interfaces/enums';
+import { useSelectSortedItems } from 'store/slices/selectors';
 
 type YoutubeItemsProps = {
   items: IItem[];
@@ -14,6 +18,8 @@ const AnimatedModalFrame = animated(ModalFrame);
 export function ItemsContainer({ items, isLoading }: YoutubeItemsProps) {
   const [selectedId, setSelectedId] = useState('');
   const [openModal, setOpenModal] = useState(false);
+
+  const sortedItems: IItem[] = useSelectSortedItems(items);
 
   const transition = useTransition(openModal, {
     from: {
@@ -55,7 +61,7 @@ export function ItemsContainer({ items, isLoading }: YoutubeItemsProps) {
         <span>Loading...</span>
       ) : (
         <div className='items__container container position-relative p-2 flex items-center justify-center flex-wrap gap-2'>
-          {items.map((x) => (
+          {sortedItems.map((x) => (
             <Card key={x.id} item={x} chooseCard={() => chooseCard(x.id)} />
           ))}
         </div>
