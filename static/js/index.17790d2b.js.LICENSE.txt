@@ -1,0 +1,309 @@
+/*! core-js/modules/esnext.async-iterator.map.js */
+
+/*! core-js/modules/esnext.iterator.constructor.js */
+
+/*! @heroicons/react/16/solid */
+
+/*! react-router */
+
+/*! pages/favorites-page */
+
+/*! ./App */
+
+/*! utils/getVideos */
+
+/*! utils/getVideos */
+
+/*! ./FavoritesPage */
+
+/*! react */
+
+/*! ../Card */
+
+/*! pages/main-page */
+
+/*! react-redux */
+
+/*! react-redux */
+
+/*! store/store */
+
+/*! react/jsx-runtime */
+
+/*! core-js/modules/esnext.iterator.filter.js */
+
+/*! store/slices/searchSlice */
+
+/*! core-js/modules/es.array.includes.js */
+
+/*! ./styles.scss */
+
+/*! ./TagBadge */
+
+/*! store/store */
+
+/*! react/jsx-runtime */
+
+/*! @react-spring/web */
+
+/*! ../../utils/interfaces/enums */
+
+/*! shared-components/Inputs/SearchInput */
+
+/*! shared-components/ItemsContainer */
+
+/*! @tanstack/react-query */
+
+/*! shared-components/AnimatedFavButton */
+
+/*! react-dom/client */
+
+/*! core-js/modules/esnext.iterator.map.js */
+
+/*! ./Header */
+
+/*! store/store */
+
+/*! @reduxjs/toolkit */
+
+/*! @react-spring/web */
+
+/*! @heroicons/react/16/solid */
+
+/*! store/slices/favoriteSlice */
+
+/*! ./Filters */
+
+/*! ./MainPage */
+
+/*! core-js/modules/esnext.async-iterator.map.js */
+
+/*! @tanstack/react-query */
+
+/*! shared-components/Inputs/FilterInput */
+
+/*! core-js/modules/es.array.includes.js */
+
+/*! shared-components/SocialInfoBlock */
+
+/*! ./ModalFrame */
+
+/*! ./slices/sortingSlice */
+
+/*! react/jsx-runtime */
+
+/*! ./SearchInput */
+
+/*! utils/interfaces/enums */
+
+/*! react/jsx-runtime */
+
+/*! @reduxjs/toolkit */
+
+/*! ./styles.scss */
+
+/*! shared-components/Modal */
+
+/*! ./styles.scss */
+
+/*! core-js/modules/es.array.includes.js */
+
+/*! ./styles.scss */
+
+/*! ./styles.scss */
+
+/*! @react-spring/web */
+
+/*! store/store */
+
+/*! store/slices/searchSlice */
+
+/*! ./styles.scss */
+
+/*! core-js/modules/esnext.iterator.map.js */
+
+/*! core-js/modules/esnext.async-iterator.filter.js */
+
+/*! ./slices/favoriteSlice */
+
+/*! @reduxjs/toolkit/react */
+
+/*! shared-components/ItemsContainer */
+
+/*! react/jsx-runtime */
+
+/*! @heroicons/react/16/solid */
+
+/*! core-js/modules/es.array.includes.js */
+
+/*! store/store */
+
+/*! store/slices/selectors */
+
+/*! react-router-dom */
+
+/*! react */
+
+/*! @tanstack/react-query */
+
+/*! react/jsx-runtime */
+
+/*! ./styles.scss */
+
+/*! ./FilterInput */
+
+/*! store/slices/sortingSlice */
+
+/*! pages/VideoPage */
+
+/*! ./Card */
+
+/*! ./VideoPage */
+
+/*! react-youtube */
+
+/*! @reduxjs/toolkit */
+
+/*! react-use-localstorage */
+
+/*! react */
+
+/*! core-js/modules/esnext.iterator.constructor.js */
+
+/*! core-js/modules/esnext.async-iterator.find.js */
+
+/*! react/jsx-runtime */
+
+/*! ./styles.scss */
+
+/*! utils/interfaces/enums */
+
+/*! react/jsx-runtime */
+
+/*! core-js/modules/esnext.iterator.find.js */
+
+/*! react */
+
+/*! ./styles.scss */
+
+/*! ./SocialInfoBlock */
+
+/*! core-js/modules/esnext.async-iterator.some.js */
+
+/*! utils/interfaces/enums */
+
+/*! react-redux */
+
+/*! core-js/modules/esnext.iterator.filter.js */
+
+/*! ./slices/searchSlice */
+
+/*! react-router-dom */
+
+/*! utils/getVideos */
+
+/*! shared-components/SocialInfoBlock */
+
+/*! core-js/modules/esnext.iterator.some.js */
+
+/*! ./styles.scss */
+
+/*! react/jsx-runtime */
+
+/*! @tanstack/react-query */
+
+/*! shared-components/Header */
+
+/*! shared-components/TagBadge */
+
+/*! react */
+
+/*! @tanstack/react-query */
+
+/*! react */
+
+/*! react/jsx-runtime */
+
+/*! react */
+
+/*! @react-spring/web */
+
+/*! react/jsx-runtime */
+
+/*! react-router */
+
+/*! core-js/modules/esnext.iterator.map.js */
+
+/*! react/jsx-runtime */
+
+/*! react-router-dom */
+
+/*! ./styles.scss */
+
+/*! core-js/modules/esnext.async-iterator.map.js */
+
+/*! react/jsx-runtime */
+
+/*! ./ItemsContainer */
+
+/*! react-redux */
+
+/*! ./SortInput */
+
+/*! @heroicons/react/20/solid */
+
+/*! core-js/modules/es.array.includes.js */
+
+/*! react/jsx-runtime */
+
+/*! ./styles.scss */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! ./styles.scss */
+
+/*! @heroicons/react/16/solid */
+
+/*! shared-components/AnimatedFavButton */
+
+/*! @react-spring/web */
+
+/*! shared-components/AnimatedFavButton */
+
+/*! react/jsx-runtime */
+
+/*! store/store */
+
+/*! axios */
+
+/*! utils/getVideos */
+
+/*! @heroicons/react/24/outline */
+
+/*! react-redux */
+
+/*! react */
+
+/*! react-redux */
+
+/*! core-js/modules/esnext.iterator.constructor.js */
+
+/*! core-js/modules/esnext.async-iterator.filter.js */
+
+/*! ./FiltersComponent */
+
+/*! react */
+
+/*! ./AnimatedFavButton */
+
+/*! ./App.css */
+
+/*! react/jsx-runtime */
+
+/*! react-router-dom */
+
+/*! shared-components/Inputs/SortInputs */
+
+/*! utils/interfaces/enums */
