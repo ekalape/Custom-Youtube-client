@@ -1,0 +1,67 @@
+.logo-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  font-family: 'Ojuju', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+
+  & .ring {
+    position: absolute;
+    margin: 0.5rem;
+    width: 80%;
+    height: 80%;
+    inset: 0;
+    border: 2px solid #fff;
+    transition: 0.5s;
+
+    @media screen and (max-width: 768px) {
+      margin-left: 70%;
+    }
+
+    &:nth-child(1) {
+      border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+      animation: animate 6s linear infinite;
+    }
+    &:nth-child(2) {
+      border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+      animation: animate 4s linear infinite;
+    }
+    &:nth-child(3) {
+      border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+      animation: animate2 10s linear infinite;
+    }
+
+    @keyframes animate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes animate2 {
+      0% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    &:hover {
+      border: 3px solid red;
+      filter: drop-shadow(0 0 20px red);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    & h2 {
+      font-size: 1rem;
+      margin-left: 120%;
+    }
+  }
+}

@@ -31,7 +31,7 @@ export function MainPage() {
       {storedWord ? (
         <ItemsContainer items={storedItems} isLoading={info.isLoading} />
       ) : (
-        <div className='flex items-end relative left-1/5 animate-bounce top-8'>
+        <div className='bouncing-arrow flex items-end relative left-1/5 animate-bounce top-8'>
           <svg viewBox='0 0 44.77 135.66' width={'10%'} height={'100%'} fill='red'>
             <g>
               <polygon points='23.26,24.74 24.14,134.12 21.14,134.12 22.02,24.74 23.26,24.74 	' />
