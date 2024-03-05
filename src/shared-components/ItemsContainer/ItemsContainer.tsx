@@ -5,6 +5,7 @@ import { useState } from 'react';
 import ModalFrame from 'shared-components/Modal';
 import { animated, useTransition } from '@react-spring/web';
 import { useSelectSortedItems } from 'store/slices/selectors';
+import Loader from 'shared-components/Loader';
 
 type YoutubeItemsProps = {
   items: IItem[];
@@ -55,7 +56,7 @@ export function ItemsContainer({ items, isLoading }: YoutubeItemsProps) {
         ) : null,
       )}
       {isLoading ? (
-        <span>Loading...</span>
+        <Loader />
       ) : (
         <div className='items__container container position-relative p-2 flex items-center justify-center flex-wrap gap-2'>
           {sortedItems.map((x) => (

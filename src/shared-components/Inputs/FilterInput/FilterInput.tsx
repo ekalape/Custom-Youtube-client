@@ -14,7 +14,7 @@ export function FilterInput({ handleFilter, labelText }: InputProps) {
   }
 
   return (
-    <div className='search-form flex gap-2'>
+    <div className='filter-form flex gap-2'>
       <label className='label'>
         {labelText}
         <input type='text' placeholder='I am looking...' ref={wordRef} onChange={setFilterWord} />

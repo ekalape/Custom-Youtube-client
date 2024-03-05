@@ -1,4 +1,11 @@
 .main-page__container {
   width: 100%;
   min-height: 100%;
+  position: relative;
+}
+
+.bouncing-arrow {
+  @media screen and (max-width: 868px) {
+    margin-left: 40%;
+  }
 }

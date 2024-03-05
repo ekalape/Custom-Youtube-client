@@ -22,13 +22,13 @@ export function ModalFrame({
 
   return (
     <animated.div
-      className='flex z-10 items-center justify-center fixed bg-stone-800/75 modal-frame top-0'
+      className='flex z-10 items-center justify-center fixed bg-black/75 backdrop-blur-sm modal-frame  top-0 bottom-0 left-0 right-0'
       onClick={closeFrame}
       style={{ opacity: animStyle.opacity }}>
       {videoData.data && videoData.data.length && (
         <animated.div
           className='relative max-w-2xl rounded-lg bg-gray-100 p-6 shadow-sm bg-gradient-to-b
-       from-stone-600 to-white border-2 border-white'
+       from-stone-800 to-stone-400 border-2 border-white'
           style={animStyle}>
           <button
             type='button'
@@ -60,7 +60,7 @@ export function ModalFrame({
                 </SocialInfoBlock>
               </div>
 
-              <p className='mt-6 text-sm text-stone-800 italic line-clamp-6'>
+              <p className='mt-6 text-sm text-white italic line-clamp-6'>
                 {videoData?.data?.[0].description}
               </p>
 

@@ -9,7 +9,7 @@ export async function getVideos(word: string) {
         key: process.env.API_KEY,
         type: 'video',
         part: 'snippet',
-        maxResults: '4',
+        maxResults: '8',
         q: word,
       },
     });

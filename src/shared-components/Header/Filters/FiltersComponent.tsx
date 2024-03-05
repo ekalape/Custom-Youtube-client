@@ -44,7 +44,7 @@ export function FiltersComponent(props: FilterPropsType) {
       style={props.animStyle}>
       <button
         onClick={props.close}
-        className=' w-10 relative top-3 left-3 border-2 px-3 py-1
+        className='cancel-btn w-10 relative top-3 left-3 border-2 px-3 py-1
         flex items-center justify-center text-center duration-300 self-start
          border-white rounded-full hover:border-red-500 hover:text-red-500'>
         x

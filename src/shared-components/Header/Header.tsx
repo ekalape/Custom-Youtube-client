@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeftIcon } from '@heroicons/react/16/solid';
 import FiltersComponent from './Filters';
 import { animated, useSpring } from '@react-spring/web';
+import Logo from './Logo';
 
 const AnimatedFiltersComponent = animated(FiltersComponent);
 
@@ -46,6 +47,7 @@ export function Header() {
 
   return (
     <div className='header-container container px-4 flex items-center justify-around  text-white '>
+      <Logo />
       {isVideoPage ? (
         <ArrowLeftIcon className='w-6 h-6 cursor-pointer' onClick={goBack} />
       ) : isFavsPage ? (
@@ -53,7 +55,7 @@ export function Header() {
       ) : (
         <SearchInput handleSearch={(word: string) => setSearchWord(word)} labelText={'Search: '} />
       )}
-      <div className='flex gap-4 '>
+      <div className='flex gap-4 menu-container'>
         <NavLink to={'/'}>Main page</NavLink>
         <NavLink to={'/favorites'}>Favorites</NavLink>
         <button

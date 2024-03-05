@@ -27,7 +27,7 @@ export function SearchInput({ handleSearch, labelText }: InputProps) {
       <button
         onClick={clearSearchField}
         type='button'
-        className='flex items-center justify-center px-2 border-2 border-white rounded-full hover:border-red-500 hover:text-red-500 duration-300'>
+        className='cancel-btn flex items-center justify-center border-2 border-white rounded-full hover:border-red-500 hover:text-red-500 duration-300'>
         x
       </button>
     </form>
